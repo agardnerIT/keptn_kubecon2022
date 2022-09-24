@@ -1,0 +1,19 @@
+---
+spec_version: '0.1.0'
+comparison:
+  compare_with: "single_result"
+  include_result_with_score: "pass"
+  aggregate_function: avg
+objectives:
+  - sli: prometheus_request_duration
+    displayName: "Prom Request Duration"
+    pass:
+      - criteria:
+          - "<=1000"
+          - "<=+50%"
+    warning:
+      - criteria:
+          - "<=2000"
+total_score:
+  pass: "90%"
+  warning: "75%"
